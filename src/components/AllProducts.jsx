@@ -6,16 +6,16 @@ const AllProducts = () => {
 
   // Dados dos produtos - SUBSTITUA AS IMAGENS E NOMES CONFORME NECESSÁRIO
   const products = [
-    { id: 1, name: 'Cimento Portland CP-II', image: '/src/assets/images/IMGproduto1.png', category: 'Cimentos' },
-    { id: 2, name: 'Tijolo Cerâmico 6 Furos', image: '/src/assets/images/IMGproduto2.png', category: 'Tijolos' },
-    { id: 3, name: 'Areia Lavada Fina', image: '/src/assets/images/IMGproduto3.png', category: 'Areias' },
-    { id: 4, name: 'Brita Graduada 19mm', image: '/src/assets/images/IMGproduto4.png', category: 'Britas' },
-    { id: 5, name: 'Ferro 10mm CA-50', image: '/src/assets/images/IMGproduto5.png', category: 'Ferragens' },
-    { id: 6, name: 'Telha Cerâmica Portuguesa', image: '/src/assets/images/IMGproduto6.png', category: 'Telhas' },
-    { id: 7, name: 'Tinta Acrílica Branca 18L', image: '/src/assets/images/IMGproduto7.png', category: 'Tintas' },
-    { id: 8, name: 'Piso Cerâmico 45x45', image: '/src/assets/images/IMGproduto8.png', category: 'Pisos' },
-    { id: 9, name: 'Porta de Madeira 80x210', image: '/src/assets/images/IMGproduto9.png', category: 'Portas' },
-    { id: 10, name: 'Kit Ferramentas Básicas', image: '/src/assets/images/IMGproduto10.png', category: 'Ferramentas' }
+    { id: 1, name: 'Cimento Portland CP-II', image: '/IMGproduto1.png', category: 'Cimentos' },
+    { id: 2, name: 'Tijolo Cerâmico 6 Furos', image: '/IMGproduto2.png', category: 'Tijolos' },
+    { id: 3, name: 'Areia Lavada Fina', image: '/IMGproduto3.png', category: 'Areias' },
+    { id: 4, name: 'Brita Graduada 19mm', image: '/IMGproduto4.png', category: 'Britas' },
+    { id: 5, name: 'Ferro 10mm CA-50', image: '/IMGproduto5.png', category: 'Ferragens' },
+    { id: 6, name: 'Telha Cerâmica Portuguesa', image: '/IMGproduto6.png', category: 'Telhas' },
+    { id: 7, name: 'Tinta Acrílica Branca 18L', image: '/IMGproduto7.png', category: 'Tintas' },
+    { id: 8, name: 'Piso Cerâmico 45x45', image: '/IMGproduto8.png', category: 'Pisos' },
+    { id: 9, name: 'Porta de Madeira 80x210', image: '/IMGproduto9.png', category: 'Portas' },
+    { id: 10, name: 'Kit Ferramentas Básicas', image: '/IMGproduto10.png', category: 'Ferramentas' }
   ]
 
   const handleWhatsApp = (productName) => {

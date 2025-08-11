@@ -5,7 +5,7 @@ const PromotionsServices = () => {
   const promotions = [
     {
       id: 1,
-      image: '/src/assets/images/promocao1.png', // Formato 1080x1350 (estilo Instagram)
+      image: '/promocao1.png', // Formato 1080x1350 (estilo Instagram)
       title: 'Promoção Cimento Portland',
       description: 'Desconto especial em compras acima de 10 sacos',
       price: 'A partir de R$ 25,90',
@@ -13,7 +13,7 @@ const PromotionsServices = () => {
     },
     {
       id: 2,
-      image: '/src/assets/images/promocao2.png', // Formato 1080x1350 (estilo Instagram)
+      image: '/promocao2.png', // Formato 1080x1350 (estilo Instagram)
       title: 'Kit Ferramentas Básicas',
       description: 'Conjunto completo para pequenos reparos',
       price: 'R$ 89,90',
@@ -21,7 +21,7 @@ const PromotionsServices = () => {
     },
     {
       id: 3,
-      image: '/src/assets/images/promocao3.png', // Formato 1080x1350 (estilo Instagram)
+      image: '/promocao3.png', // Formato 1080x1350 (estilo Instagram)
       title: 'Serviço de Entrega',
       description: 'Entrega rápida em toda Camaçari-BA',
       price: 'Consulte condições',

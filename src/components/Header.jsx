@@ -12,7 +12,7 @@ const Header = () => {
 
   const handleWhatsApp = () => {
     // Substitua pelo número real da empresa
-    const phoneNumber = '5571999999999'
+    const phoneNumber = '5571999575358'
     const message = 'Olá! Gostaria de mais informações sobre os produtos da LM Comercial.'
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }

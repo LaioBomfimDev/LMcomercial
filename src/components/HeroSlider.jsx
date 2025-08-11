@@ -7,21 +7,21 @@ const HeroSlider = () => {
   const slides = [
     {
       id: 1,
-      image: '/src/assets/images/slideBarIMG1.png', // Substitua pela imagem real
+      image: '/slideBarIMG1.png', // Substitua pela imagem real
       title: 'Cimento Portland de Alta Qualidade',
       description: 'O melhor cimento para sua construção com preços imbatíveis',
       alt: 'Cimento Portland'
     },
     {
       id: 2,
-      image: '/src/assets/images/slideBarIMG2.png', // Substitua pela imagem real
+      image: '/slideBarIMG2.png', // Substitua pela imagem real
       title: 'Tijolos e Blocos Cerâmicos',
       description: 'Variedade completa de tijolos para todos os tipos de obra',
       alt: 'Tijolos e Blocos'
     },
     {
       id: 3,
-      image: '/src/assets/images/slideBarIMG3.png', // Substitua pela imagem real
+      image: '/slideBarIMG3.png', // Substitua pela imagem real
       title: 'Ferramentas e Equipamentos',
       description: 'Tudo que você precisa para sua obra em um só lugar',
       alt: 'Ferramentas'

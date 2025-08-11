@@ -55,7 +55,7 @@ const WhyChooseUs = () => {
           <div className="order-2 lg:order-1">
             <div className="relative">
               <img
-                src="/src/assets/images/why-choose-us.png" // SUBSTITUA pela imagem real
+                src="/why-choose-us.png" // SUBSTITUA pela imagem real
                 alt="LM Comercial - Material de Construção"
                 className="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl"
                 onError={(e) => {
