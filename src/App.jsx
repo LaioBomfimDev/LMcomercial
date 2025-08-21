@@ -4,8 +4,11 @@ import HeroSlider from './components/HeroSlider'
 import PromotionsServices from './components/PromotionsServices'
 import WhyChooseUs from './components/WhyChooseUs'
 import AllProducts from './components/AllProducts'
+import Testimonials from './components/Testimonials'
+import FAQ from './components/FAQ'
 import LocationMap from './components/LocationMap'
 import Footer from './components/Footer'
+
 
 function App() {
   return (
@@ -13,22 +16,44 @@ function App() {
       {/* Header fixo no topo */}
       <Header />
       
+
+      
       {/* Conteúdo principal */}
       <main>
         {/* Slidebar promocional */}
-        <HeroSlider />
+        <section id="inicio">
+          <HeroSlider />
+        </section>
         
         {/* Promoções e Serviços Personalizados */}
-        <PromotionsServices />
+        <section id="promocoes">
+          <PromotionsServices />
+        </section>
         
         {/* Por que nos escolher? */}
-        <WhyChooseUs />
+        <section id="sobre">
+          <WhyChooseUs />
+        </section>
         
         {/* Todos os produtos */}
-        <AllProducts />
+        <section id="produtos">
+          <AllProducts />
+        </section>
         
-        {/* Mapa estático */}
-        <LocationMap />
+        {/* Depoimentos de clientes */}
+        <section id="depoimentos">
+          <Testimonials />
+        </section>
+        
+        {/* Mapa e contato */}
+        <section id="contato">
+          <LocationMap />
+        </section>
+        
+        {/* Perguntas frequentes */}
+        <section id="faq">
+          <FAQ />
+        </section>
       </main>
       
       {/* Footer */}

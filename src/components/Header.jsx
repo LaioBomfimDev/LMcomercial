@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const menuItems = [
     { name: 'Início', href: '#inicio' },
@@ -11,7 +12,6 @@ const Header = () => {
   ]
 
   const handleWhatsApp = () => {
-    // Substitua pelo número real da empresa
     const phoneNumber = '557198282673'
     const message = 'Olá! Gostaria de mais informações sobre os produtos da LM Comercial.'
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
@@ -21,8 +21,21 @@ const Header = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-pearl-white bg-opacity-10 backdrop-blur-md shadow-lg border-b-2 border-dark-blue border-opacity-10">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      isScrolled 
+        ? 'bg-white/95 backdrop-blur-xl' 
+        : 'bg-white/20 backdrop-blur-2xl'
+    }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -30,7 +43,7 @@ const Header = () => {
             <img 
               src="/logo2lm.png" 
               alt="LM Comercial Logo" 
-              className="h-12 w-auto"
+              className="h-16 w-auto md:h-20 transition-transform duration-300 hover:scale-105"
               onError={(e) => {
                 e.target.style.display = 'none'
               }}
@@ -38,58 +51,79 @@ const Header = () => {
           </div>
 
           {/* Menu Desktop */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             {menuItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-lg font-medium text-dark-blue hover:text-dark-red transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-white"
+                className={`text-lg font-bold transition-all duration-300 px-4 py-2 rounded-xl relative group ${
+                  isScrolled 
+                    ? 'text-dark-blue hover:text-dark-red hover:bg-gray-50/80' 
+                    : 'text-white hover:text-yellow-300 hover:bg-white/20 text-shadow-lg'
+                }`}
               >
                 {item.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-dark-red transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
             <button
               onClick={handleWhatsApp}
-              className="btn-primary ml-4"
+              className="btn-primary ml-6 font-bold text-white bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
             >
-              WhatsApp
+              📱 WhatsApp
             </button>
           </nav>
 
           {/* Menu Mobile Button */}
           <button
-            className="md:hidden flex flex-col space-y-1 p-2"
+            className="md:hidden flex flex-col space-y-1 p-3 rounded-lg bg-white/20 backdrop-blur-md hover:bg-white/30 transition-all duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <span className={`block w-6 h-0.5 bg-dark-blue transition-transform duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-dark-blue transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-dark-blue transition-transform duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+            <span className={`block w-7 h-1 transition-all duration-300 ${
+              isScrolled ? 'bg-dark-blue' : 'bg-white shadow-md'
+            } ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+            <span className={`block w-7 h-1 transition-all duration-300 ${
+              isScrolled ? 'bg-dark-blue' : 'bg-white shadow-md'
+            } ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`block w-7 h-1 transition-all duration-300 ${
+              isScrolled ? 'bg-dark-blue' : 'bg-white shadow-md'
+            } ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
           </button>
         </div>
 
         {/* Menu Mobile */}
-        {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-3 pt-4">
-              {menuItems.map((item) => (
+        <div className={`md:hidden overflow-hidden transition-all duration-500 ${
+          isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}>
+          <nav className="mt-4 pb-4 border-t border-white/30 backdrop-blur-md">
+            <div className="flex flex-col space-y-2 pt-4">
+              {menuItems.map((item, index) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-lg font-medium text-dark-blue hover:text-dark-red transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-white"
+                  className={`text-lg font-bold transition-all duration-300 px-4 py-3 rounded-xl transform ${
+                    isScrolled 
+                      ? 'text-dark-blue hover:text-dark-red hover:bg-gray-50/80' 
+                      : 'text-white hover:text-yellow-300 hover:bg-white/20 text-shadow-lg'
+                  } hover:translate-x-2 hover:scale-105`}
                   onClick={() => setIsMenuOpen(false)}
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {item.name}
                 </a>
               ))}
               <button
-                onClick={handleWhatsApp}
-                className="btn-primary mt-3 w-full"
+                onClick={() => {
+                  handleWhatsApp()
+                  setIsMenuOpen(false)
+                }}
+                className="btn-primary mt-4 w-full font-bold text-white bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
-                WhatsApp
+                📱 WhatsApp
               </button>
             </div>
           </nav>
-        )}
+        </div>
       </div>
     </header>
   )

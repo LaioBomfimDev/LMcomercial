@@ -4,7 +4,6 @@ const AllProducts = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const itemsPerPage = 3 // Número de produtos visíveis por vez
 
-  // Produtos reais da LM Comercial com as novas imagens
   const products = [
     { id: 1, name: 'Argamassa AC1 Brasil', image: '/argamassa-ac1-topo-produto-brasil.webp', category: 'Argamassas' },
     { id: 2, name: 'Argamassa AC2', image: '/argamassa-ac2-topo-produto.webp', category: 'Argamassas' },
@@ -19,7 +18,6 @@ const AllProducts = () => {
   ]
 
   const handleWhatsApp = (productName) => {
-    // Substitua pelo número real da empresa
     const phoneNumber = '557198282673'
     const message = `Olá! Gostaria de solicitar um orçamento para: ${productName}. Aguardo retorno!`
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
@@ -65,15 +63,14 @@ const AllProducts = () => {
                   key={product.id} 
                   className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4"
                 >
-                  <div className="card group h-full">
+                  <div className="card-hover group h-full bg-white rounded-xl shadow-lg overflow-hidden">
                     {/* Imagem do produto */}
                     <div className="relative overflow-hidden">
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-64 object-cover group-hover:scale-110 transition-all duration-500 group-hover:brightness-110"
                         onError={(e) => {
-                          // Fallback para quando a imagem não existir
                           e.target.src = `data:image/svg+xml;base64,${btoa(`
                             <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
                               <rect width="100%" height="100%" fill="#0A2342"/>
@@ -89,9 +86,12 @@ const AllProducts = () => {
                       />
                       
                       {/* Badge da categoria */}
-                      <div className="absolute top-3 left-3 bg-dark-blue text-white px-3 py-1 rounded-full text-sm font-medium">
+                      <div className="absolute top-3 left-3 bg-dark-blue text-white px-3 py-1 rounded-full text-sm font-medium transform group-hover:scale-110 transition-transform duration-300">
                         {product.category}
                       </div>
+                      
+                      {/* Overlay hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
 
                     {/* Conteúdo do card */}
@@ -102,7 +102,7 @@ const AllProducts = () => {
                       
                       <button
                         onClick={() => handleWhatsApp(product.name)}
-                        className="btn-primary w-full flex items-center justify-center space-x-2"
+                        className="btn-gradient w-full flex items-center justify-center space-x-2 group-hover:animate-pulse"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />

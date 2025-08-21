@@ -1,7 +1,6 @@
 import React from 'react'
 
 const PromotionsServices = () => {
-  // Dados das promoções e serviços - SUBSTITUA AS IMAGENS E TEXTOS CONFORME NECESSÁRIO
   const promotions = [
     {
       id: 1,
@@ -30,7 +29,6 @@ const PromotionsServices = () => {
   ]
 
   const handleWhatsApp = (productName) => {
-    // Substitua pelo número real da empresa
     const phoneNumber = '557198282673'
     const message = `Olá! Tenho interesse em: ${productName}. Gostaria de mais informações e preços.`
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
@@ -52,15 +50,14 @@ const PromotionsServices = () => {
         {/* Grid de promoções */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {promotions.map((promo) => (
-            <div key={promo.id} className="card group">
+            <div key={promo.id} className="card-hover group bg-white rounded-xl shadow-lg overflow-hidden">
               {/* Imagem */}
               <div className="relative overflow-hidden">
                 <img
                   src={promo.image}
                   alt={promo.alt}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-80 object-cover group-hover:scale-110 transition-all duration-500 group-hover:brightness-110"
                   onError={(e) => {
-                    // Fallback para quando a imagem não existir
                     e.target.src = `data:image/svg+xml;base64,${btoa(`
                       <svg width="1080" height="1350" xmlns="http://www.w3.org/2000/svg">
                         <rect width="100%" height="100%" fill="#0A2342"/>
@@ -73,9 +70,12 @@ const PromotionsServices = () => {
                 />
                 
                 {/* Badge de promoção */}
-                <div className="absolute top-4 right-4 bg-dark-red text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <div className="absolute top-4 right-4 bg-dark-red text-white px-3 py-1 rounded-full text-sm font-semibold transform group-hover:scale-110 transition-transform duration-300 animate-pulse">
                   Oferta
                 </div>
+                
+                {/* Overlay hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
               {/* Conteúdo do card */}

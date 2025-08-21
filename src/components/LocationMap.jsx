@@ -2,14 +2,12 @@ import React from 'react'
 
 const LocationMap = () => {
   const handleDirections = () => {
-    // Abre o Google Maps com direções para o endereço
     const address = 'Av. Rio Bandeira, 150, Gleba A, Camaçari-BA, CEP: 42807-630'
     const encodedAddress = encodeURIComponent(address)
     window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`, '_blank')
   }
 
   const handleWhatsAppLocation = () => {
-    // Substitua pelo número real da empresa
     const phoneNumber = '557198282673'
     const message = 'Olá! Gostaria de mais informações sobre a localização da LM Comercial e horários de funcionamento.'
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
@@ -43,7 +41,6 @@ const LocationMap = () => {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Localização LM Comercial"
                 onError={(e) => {
-                  // Fallback para quando o iframe não carregar
                   e.target.style.display = 'none'
                   e.target.nextSibling.style.display = 'block'
                 }}

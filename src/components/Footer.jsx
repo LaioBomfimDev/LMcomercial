@@ -4,24 +4,20 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const handleWhatsApp = () => {
-    // Substitua pelo número real da empresa
     const phoneNumber = '557198282673'
     const message = 'Olá! Gostaria de mais informações sobre os produtos e serviços da LM Comercial.'
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
 
   const handleInstagram = () => {
-    // Substitua pelo Instagram real da empresa
     window.open('https://instagram.com/lmcomercial', '_blank')
   }
 
   const handleFacebook = () => {
-    // Substitua pelo Facebook real da empresa
     window.open('https://facebook.com/lmcomercial', '_blank')
   }
 
   const handleEmail = () => {
-    // Substitua pelo email real da empresa
     window.open('mailto:contato@lmcomercial.com.br', '_blank')
   }
 

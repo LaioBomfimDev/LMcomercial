@@ -2,7 +2,6 @@ import React from 'react'
 
 const WhyChooseUs = () => {
   const handleConsultorWhatsApp = () => {
-    // Substitua pelo número real da empresa
     const phoneNumber = '557198282673'
     const message = 'Olá! Gostaria de falar com um consultor especializado da LM Comercial.'
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
@@ -55,11 +54,10 @@ const WhyChooseUs = () => {
           <div className="order-2 lg:order-1">
             <div className="relative">
               <img
-                src="/why-choose-us.png" // SUBSTITUA pela imagem real
+                src="/why-choose-us.png"
                 alt="LM Comercial - Material de Construção"
                 className="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl"
                 onError={(e) => {
-                  // Fallback para quando a imagem não existir
                   e.target.src = `data:image/svg+xml;base64,${btoa(`
                     <svg width="600" height="500" xmlns="http://www.w3.org/2000/svg">
                       <rect width="100%" height="100%" fill="#0A2342"/>
