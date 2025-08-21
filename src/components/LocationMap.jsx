@@ -99,8 +99,8 @@ const LocationMap = () => {
                 <div>
                   <h3 className="text-xl font-bold text-dark-blue mb-2">Horário de Funcionamento</h3>
                   <div className="text-gray-700 space-y-1">
-                    <p><span className="font-medium">Segunda a Sexta:</span> 7:00 às 18:00</p>
-                    <p><span className="font-medium">Sábado:</span> 7:00 às 16:00</p>
+                    <p><span className="font-medium">Segunda a Sexta:</span> 8:00 às 17:00</p>
+                    <p><span className="font-medium">Sábado:</span> 8:00 às 12:00</p>
                     <p><span className="font-medium">Domingo:</span> Fechado</p>
                   </div>
                 </div>

@@ -47,7 +47,7 @@ const HeroSlider = () => {
   }, [])
 
   return (
-    <section id="inicio" className="relative w-full h-[500px] md:h-[600px] mt-20 overflow-hidden">
+    <section id="inicio" className="relative w-full h-[500px] md:h-[700px] lg:h-[700px] pt-20 overflow-hidden">
       {/* Slides */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
@@ -62,7 +62,7 @@ const HeroSlider = () => {
               <img
                 src={slide.image}
                 alt={slide.alt}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover md:object-center lg:object-center"
                 onError={(e) => {
                   // Fallback para quando a imagem não existir
                   e.target.src = `data:image/svg+xml;base64,${btoa(`
