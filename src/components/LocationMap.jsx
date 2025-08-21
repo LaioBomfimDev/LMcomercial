@@ -3,7 +3,7 @@ import React from 'react'
 const LocationMap = () => {
   const handleDirections = () => {
     // Abre o Google Maps com direções para o endereço
-    const address = 'Rua Geonisio Barroso, Bairro Boa Vista, Centro Administrativo, Camaçari-BA'
+    const address = 'Av. Rio Bandeira, 150, Gleba A, Camaçari-BA, CEP: 42807-630'
     const encodedAddress = encodeURIComponent(address)
     window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`, '_blank')
   }

@@ -28,22 +28,13 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={scrollToTop}>
             <img 
-              src="/logolm.png" 
+              src="/logo2lm.png" 
               alt="LM Comercial Logo" 
-              className="h-12 w-auto mr-3"
+              className="h-12 w-auto"
               onError={(e) => {
                 e.target.style.display = 'none'
-                e.target.nextSibling.style.display = 'block'
               }}
             />
-            <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-dark-blue">
-                LM Comercial
-              </h1>
-              <span className="text-sm text-gray-700 hidden md:block">
-                Material de Construção
-              </span>
-            </div>
           </div>
 
           {/* Menu Desktop */}

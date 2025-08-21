@@ -42,16 +42,13 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4 cursor-pointer" onClick={scrollToTop}>
               <img 
-                src="/logolm.png" 
+                src="/logo2lm.png" 
                 alt="LM Comercial Logo" 
                 className="h-16 w-auto mr-4"
                 onError={(e) => {
                   e.target.style.display = 'none'
                 }}
               />
-              <h3 className="text-2xl font-bold text-dark-blue">
-                LM Comercial
-              </h3>
             </div>
             <p className="text-gray-700 mb-6 leading-relaxed">
               Sua casa de material de construção em Camaçari-BA. 
@@ -81,15 +78,7 @@ const Footer = () => {
                 </svg>
               </button>
               
-              <button
-                onClick={handleFacebook}
-                className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg transition-colors duration-300 shadow-lg"
-                title="Facebook"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </button>
+
             </div>
           </div>
 
@@ -127,10 +116,10 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <div className="text-gray-700 text-sm leading-relaxed">
-                  Rua Geonisio Barroso<br />
-                  Bairro Boa Vista<br />
-                  Centro Administrativo<br />
-                  Camaçari-BA
+                  Av. Rio Bandeira, 150<br />
+                  Gleba A<br />
+                  Camaçari - BA<br />
+                  CEP: 42807-630
                 </div>
               </div>
             </div>
