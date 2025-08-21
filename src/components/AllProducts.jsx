@@ -12,7 +12,10 @@ const AllProducts = () => {
     { id: 4, name: 'Carrinho de Mão Extraforte 65L Tramontina', image: '/Carrinho-de-Mao-Extraforte-Cinza-65L-Tramontina.webp', category: 'Ferramentas' },
     { id: 5, name: 'Carrinho de Mão', image: '/carrinho de mão.webp', category: 'Ferramentas' },
     { id: 6, name: 'Laje Treliçada com EPS', image: '/laje-trelicada-com-eps.webp', category: 'Estruturas' },
-    { id: 7, name: 'Tubo de Esgoto', image: '/tuboesgoto.webp', category: 'Hidráulica' }
+    { id: 7, name: 'Tubo de Esgoto', image: '/tuboesgoto.webp', category: 'Hidráulica' },
+    { id: 8, name: 'Cimento Poty', image: '/Cimento-Poty.webp', category: 'Cimentos' },
+    { id: 9, name: 'Telha Brasilit', image: '/telha brasilit.png', category: 'Telhas' },
+    { id: 10, name: 'Vedacit Impermeabilizante', image: '/vedacit.webp', category: 'Impermeabilizantes' }
   ]
 
   const handleWhatsApp = (productName) => {
