@@ -25,19 +25,13 @@ function App() {
           <HeroSlider />
         </section>
         
-        {/* Promoções e Serviços Personalizados */}
-        <section id="promocoes">
-          <PromotionsServices />
-        </section>
-        
-        {/* Por que nos escolher? */}
-        <section id="sobre">
-          <WhyChooseUs />
-        </section>
-        
         {/* Todos os produtos */}
         <section id="produtos">
           <AllProducts />
+        </section>
+        {/* Por que nos escolher? */}
+        <section id="sobre">
+          <WhyChooseUs />
         </section>
         
         {/* Depoimentos de clientes */}

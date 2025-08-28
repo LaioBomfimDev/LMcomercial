@@ -2,16 +2,36 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo3lm.png" />
+    <link rel="icon" type="image/png" href="./logo3lm.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LM Comercial - Material de Construção em Camaçari-BA</title>
     <meta name="description" content="LM Comercial - Sua casa de material de construção em Camaçari-BA. Qualidade, preços competitivos e entrega rápida." />
+    
+    <!-- Preconnect para Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts com font-display: swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload para fontes críticas -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Preload para CSS crítico -->
+    <link rel="modulepreload" href="./src/main.jsx">
+    
+    <!-- Meta tags para SEO e performance -->
+    <meta name="theme-color" content="#1f2937">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="LM Comercial - Material de Construção em Camaçari-BA">
+    <meta property="og:description" content="Sua obra nossa prioridade. Materiais de construção de qualidade com os melhores preços de Camaçari-BA.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lmcomercial.com">
+    <meta name="twitter:card" content="summary_large_image">
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="./src/main.jsx"></script>
   </body>
 </html>

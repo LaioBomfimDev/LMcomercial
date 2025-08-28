@@ -1,8 +1,51 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const WhyChooseUs = () => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [imageLoaded, setImageLoaded] = useState(false)
+
+  // Array com as novas imagens do slider
+  const slides = [
+    {
+      id: 1,
+      src: 'heroes/pass1.png',
+      alt: 'Qualidade e Confiança'
+    },
+    {
+      id: 2,
+      src: 'heroes/pass2.png',
+      alt: 'Materiais de Qualidade'
+    },
+    {
+      id: 3,
+      src: 'heroes/pass3.png',
+      alt: 'Atendimento Especializado'
+    }
+  ]
+
+  // Função para avançar automaticamente os slides
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+      setImageLoaded(false) // Reset loading state for smooth transition
+    }, 6000) // 6 segundos
+
+    return () => clearInterval(interval)
+  }, [])
+
+  // Funções de navegação manual
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length)
+    setImageLoaded(false)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+    setImageLoaded(false)
+  }
+
   const handleConsultorWhatsApp = () => {
-    const phoneNumber = '557198282673'
+    const phoneNumber = '5571982826739'
     const message = 'Olá! Gostaria de falar com um consultor especializado da LM Comercial.'
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
@@ -38,7 +81,7 @@ const WhyChooseUs = () => {
     {
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       ),
       title: 'Atendimento Especializado',
@@ -50,27 +93,74 @@ const WhyChooseUs = () => {
     <section className="py-16 px-4 bg-white">
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Lado esquerdo - Imagem */}
+          {/* Lado esquerdo - Slider de Imagens */}
           <div className="order-2 lg:order-1">
-            <div className="relative">
-              <img
-                src="/why-choose-us.png"
-                alt="LM Comercial - Material de Construção"
-                className="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl"
-                onError={(e) => {
-                  e.target.src = `data:image/svg+xml;base64,${btoa(`
-                    <svg width="600" height="500" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="100%" height="100%" fill="#0A2342"/>
-                      <text x="50%" y="40%" font-family="Arial" font-size="24" fill="white" text-anchor="middle" dy=".3em">
-                        LM Comercial
-                      </text>
-                      <text x="50%" y="60%" font-family="Arial" font-size="18" fill="white" text-anchor="middle" dy=".3em">
-                        Material de Construção
-                      </text>
-                    </svg>
-                  `)}`
-                }}
-              />
+            <div className="relative overflow-hidden">
+              {/* Container do slider */}
+              <div className="relative w-full h-96 lg:h-[500px] rounded-2xl shadow-2xl overflow-hidden">
+                {/* Imagem atual */}
+                <img
+                  src={`/src/assets/images/${slides[currentSlide].src}`}
+                  alt={slides[currentSlide].alt}
+                  className={`w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                    imageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  onLoad={() => setImageLoaded(true)}
+                />
+                
+                {/* Loading skeleton */}
+                {!imageLoaded && (
+                  <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                    <div className="text-gray-400 text-lg">Carregando...</div>
+                  </div>
+                )}
+                
+                {/* Botões de navegação com animações */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-500 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-dark-blue animate-fade-in-left opacity-0 animation-delay-300"
+                  style={{
+                    animation: 'fadeInLeft 0.8s ease-out 0.5s forwards'
+                  }}
+                  aria-label="Slide anterior"
+                >
+                  <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-500 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-dark-blue animate-fade-in-right opacity-0 animation-delay-500"
+                  style={{
+                    animation: 'fadeInRight 0.8s ease-out 0.7s forwards'
+                  }}
+                  aria-label="Próximo slide"
+                >
+                  <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+                
+                {/* Indicadores de slide */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {slides.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentSlide 
+                          ? 'bg-white scale-110' 
+                          : 'bg-white/50 hover:bg-white/75'
+                      }`}
+                      onClick={() => {
+                        setCurrentSlide(index)
+                        setImageLoaded(false)
+                      }}
+                      aria-label={`Ir para slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
               
               {/* Elementos decorativos */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-dark-blue rounded-full opacity-20"></div>

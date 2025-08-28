@@ -4,7 +4,7 @@ const PromotionsServices = () => {
   const promotions = [
     {
       id: 1,
-      image: '/promocao1.png', // Formato 1080x1350 (estilo Instagram)
+      image: 'products/Cimento-Poty.png',
       title: 'Promoção Cimento Portland',
       description: 'Desconto especial em compras acima de 10 sacos',
       price: 'A partir de R$ 25,90',
@@ -12,7 +12,7 @@ const PromotionsServices = () => {
     },
     {
       id: 2,
-      image: '/promocao2.png', // Formato 1080x1350 (estilo Instagram)
+      image: 'products/carrinho-de-mao.png',
       title: 'Kit Ferramentas Básicas',
       description: 'Conjunto completo para pequenos reparos',
       price: 'R$ 89,90',
@@ -20,7 +20,7 @@ const PromotionsServices = () => {
     },
     {
       id: 3,
-      image: '/promocao3.png', // Formato 1080x1350 (estilo Instagram)
+      image: 'logo2lm.png',
       title: 'Serviço de Entrega',
       description: 'Entrega rápida em toda Camaçari-BA',
       price: 'Consulte condições',
@@ -29,7 +29,7 @@ const PromotionsServices = () => {
   ]
 
   const handleWhatsApp = (productName) => {
-    const phoneNumber = '557198282673'
+    const phoneNumber = '5571982826739'
     const message = `Olá! Tenho interesse em: ${productName}. Gostaria de mais informações e preços.`
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
@@ -54,19 +54,9 @@ const PromotionsServices = () => {
               {/* Imagem */}
               <div className="relative overflow-hidden">
                 <img
-                  src={promo.image}
+                  src={`/src/assets/images/${promo.image}`}
                   alt={promo.alt}
                   className="w-full h-80 object-cover group-hover:scale-110 transition-all duration-500 group-hover:brightness-110"
-                  onError={(e) => {
-                    e.target.src = `data:image/svg+xml;base64,${btoa(`
-                      <svg width="1080" height="1350" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100%" height="100%" fill="#0A2342"/>
-                        <text x="50%" y="50%" font-family="Arial" font-size="48" fill="white" text-anchor="middle" dy=".3em">
-                          ${promo.title}
-                        </text>
-                      </svg>
-                    `)}`
-                  }}
                 />
                 
                 {/* Badge de promoção */}

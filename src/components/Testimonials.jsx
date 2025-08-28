@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -6,21 +7,21 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'João Silva',
+      name: 'Weverton de Jesus Pinto',
       role: 'Construtor Civil',
       content: 'Descobri a LM Comercial recentemente e já virou minha primeira opção! Produtos de qualidade e atendimento excepcional.',
       rating: 5,
       location: 'Camaçari-BA',
-      image: '/coment1.jfif'
+      image: 'avatars/persona1.png'
     },
     {
       id: 2,
-      name: 'Roberto Santos',
-      role: 'Engenheiro Civil',
+      name: 'Maria José Constatino',
+      role: 'Engenheira Civil',
       content: 'Uma nova loja que chegou para fazer a diferença! Preços competitivos e variedade de produtos impressionante.',
       rating: 5,
       location: 'Lauro de Freitas-BA',
-      image: '/coment2.jfif'
+      image: 'avatars/persona2.png'
     },
     {
       id: 3,
@@ -29,7 +30,25 @@ const Testimonials = () => {
       content: 'Fiquei surpreso com a qualidade dos materiais da LM Comercial. Uma loja nova que já conquistou minha confiança!',
       rating: 5,
       location: 'Simões Filho-BA',
-      image: '/coment3.jfif'
+      image: 'avatars/persona3.png'
+    },
+    {
+      id: 4,
+      name: 'Jorge Aragão da silva',
+      role: 'Arquiteta',
+      content: 'Excelente atendimento e produtos de primeira linha! A LM Comercial tem tudo que preciso para meus projetos. Recomendo de olhos fechados!',
+      rating: 5,
+      location: 'Salvador-BA',
+      image: 'avatars/persona4.png'
+    },
+    {
+      id: 5,
+      name: 'Antonio César Pereira Junior',
+      role: 'Proprietário de Casa',
+      content: 'Reforma da minha casa ficou perfeita graças aos materiais da LM Comercial. Preço justo, qualidade garantida e entrega no prazo!',
+      rating: 5,
+      location: 'Dias d\'Ávila-BA',
+      image: 'avatars/persona5.png'
     }
   ]
 
@@ -87,13 +106,11 @@ const Testimonials = () => {
                 >
                   <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center card-hover">
                     <div className="mb-8">
-                      <img 
-                        src={testimonial.image} 
+                      <img
+                        src={`/src/assets/images/${testimonial.image}`}
                         alt={testimonial.name}
                         className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-green-100 shadow-lg"
-                        onError={(e) => {
-                          e.target.style.display = 'none'
-                        }}
+                        loading="lazy"
                       />
                     </div>
                     

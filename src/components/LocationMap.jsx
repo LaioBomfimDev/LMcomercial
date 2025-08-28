@@ -8,7 +8,7 @@ const LocationMap = () => {
   }
 
   const handleWhatsAppLocation = () => {
-    const phoneNumber = '557198282673'
+    const phoneNumber = '5571982826739'
     const message = 'Olá! Gostaria de mais informações sobre a localização da LM Comercial e horários de funcionamento.'
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }

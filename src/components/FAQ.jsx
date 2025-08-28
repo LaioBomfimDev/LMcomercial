@@ -27,7 +27,7 @@ const FAQ = () => {
     {
       id: 5,
       question: 'Como solicitar um orçamento?',
-      answer: 'Você pode solicitar orçamento pelo WhatsApp (71) 98282-6673, por e-mail ou visitando nossa loja. Enviamos orçamentos detalhados em até 24 horas.'
+      answer: 'Você pode solicitar orçamento pelo WhatsApp (71) 98282-6739, por e-mail ou visitando nossa loja. Enviamos orçamentos detalhados em até 24 horas.'
     },
     {
       id: 6,
@@ -57,7 +57,7 @@ const FAQ = () => {
   }
 
   const handleWhatsApp = () => {
-    const phoneNumber = '557198282673'
+    const phoneNumber = '5571982826739'
     const message = 'Olá! Tenho uma dúvida que não encontrei no FAQ. Podem me ajudar?'
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }

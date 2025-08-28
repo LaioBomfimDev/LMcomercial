@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { rafThrottle } from '../utils/performance'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -7,12 +8,11 @@ const Header = () => {
   const menuItems = [
     { name: 'Início', href: '#inicio' },
     { name: 'Produtos', href: '#produtos' },
-    { name: 'Serviços', href: '#servicos' },
     { name: 'Contato', href: '#contato' }
   ]
 
   const handleWhatsApp = () => {
-    const phoneNumber = '557198282673'
+    const phoneNumber = '5571982826739'
     const message = 'Olá! Gostaria de mais informações sobre os produtos da LM Comercial.'
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
@@ -22,11 +22,11 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = rafThrottle(() => {
       setIsScrolled(window.scrollY > 50)
-    }
+    })
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -41,12 +41,9 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={scrollToTop}>
             <img 
-              src="/logo2lm.png" 
+              src="/src/assets/images/logo2lm.png" 
               alt="LM Comercial Logo" 
               className="h-16 w-auto md:h-20 transition-transform duration-300 hover:scale-105"
-              onError={(e) => {
-                e.target.style.display = 'none'
-              }}
             />
           </div>
 
@@ -70,7 +67,7 @@ const Header = () => {
               onClick={handleWhatsApp}
               className="btn-primary ml-6 font-bold text-white bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
             >
-              📱 WhatsApp
+               WhatsApp
             </button>
           </nav>
 
@@ -119,7 +116,7 @@ const Header = () => {
                 }}
                 className="btn-primary mt-4 w-full font-bold text-white bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 px-6 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
-                📱 WhatsApp
+                 WhatsApp
               </button>
             </div>
           </nav>

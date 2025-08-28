@@ -4,13 +4,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const handleWhatsApp = () => {
-    const phoneNumber = '557198282673'
+    const phoneNumber = '5571982826739'
     const message = 'Olá! Gostaria de mais informações sobre os produtos e serviços da LM Comercial.'
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
 
   const handleInstagram = () => {
-    window.open('https://instagram.com/lmcomercial', '_blank')
+    window.open('https://instagram.com/lm_comerciall', '_blank')
   }
 
   const handleFacebook = () => {
@@ -38,12 +38,9 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4 cursor-pointer" onClick={scrollToTop}>
               <img 
-                src="/logo2lm.png" 
+                src="/src/assets/images/logo2lm.png" 
                 alt="LM Comercial Logo" 
                 className="h-16 w-auto mr-4"
-                onError={(e) => {
-                  e.target.style.display = 'none'
-                }}
               />
             </div>
             <p className="text-gray-700 mb-6 leading-relaxed">
@@ -102,7 +99,7 @@ const Footer = () => {
                   onClick={handleEmail}
                   className="text-gray-700 hover:text-dark-blue transition-colors break-all"
                 >
-                  contato@lmcomercial.com.br
+                  Lucasemauricio285@gmail.com
                 </button>
               </div>
               

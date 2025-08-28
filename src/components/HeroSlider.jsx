@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { rafThrottle } from '../utils/performance'
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -8,14 +9,14 @@ const HeroSlider = () => {
   const slides = [
     {
       id: 1,
-      image: '/hero1.png',
+      image: 'heroes/hero12.png',
       title: 'Sua Obra Nossa Prioridade',
       description: 'Materiais de construção de qualidade com os melhores preços de Camaçari-BA',
       alt: 'LM Comercial - Materiais de Construção'
     },
     {
       id: 2,
-      image: '/hero2.png',
+      image: 'heroes/hero2.png',
       title: 'VENHAM PRA LOJA',
       description: 'O menor preço  em materiais  de construção  de Camaçari-BA!',
       alt: 'Atendimento e Entrega LM Comercial'
@@ -23,7 +24,7 @@ const HeroSlider = () => {
   ]
 
   const handleWhatsApp = (productName) => {
-    const phoneNumber = '557198282673'
+    const phoneNumber = '5571982826739'
     const message = `Olá! Tenho interesse no produto: ${productName}. Gostaria de mais informações e preços.`
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank')
   }
@@ -46,11 +47,11 @@ const HeroSlider = () => {
   }, [currentSlide]) // Reinicia o timer quando o slide muda
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = rafThrottle(() => {
       setScrollY(window.scrollY)
-    }
+    })
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -77,8 +78,9 @@ const HeroSlider = () => {
               )}
               
               <img
-                src={slide.image}
+                src={`/src/assets/images/${slide.image}`}
                 alt={slide.alt}
+                loading={index === 0 ? 'eager' : 'lazy'}
                 className={`w-full h-full object-cover md:object-center lg:object-center transition-opacity duration-500 ${
                   imageLoaded[slide.id] ? 'opacity-100' : 'opacity-0'
                 }`}
